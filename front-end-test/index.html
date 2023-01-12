@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="index.css">
+    <title>Aztech</title>
+</head>
+<body>
+    <p>Front end Test 1:</p>
+    <button onclick="display()">Display current date</button>
+    <p>Front end Test 2:</p>
+    <div id="test2">
+        <form>
+            <label for="input">Number 1</label>
+            <input id="number1" type="text" onchange="check(event)"/>
+
+            <label for="input">Number 2</label>
+            <input id="number2" type="text" onchange="check(event)"/>
+
+            <p id="result">Result: </p>
+
+            <button id="button" type="button" onclick="calc()">Calculate</button>
+        </form>
+        
+        <p>Today is
+            <span id="dayN"></span>,
+            <span id="month"></span>
+            <span id="day"></span>,
+            <span id="year"></span>. The current time is
+            <span id="hour"></span>:
+            <span id="minute"></span>:
+            <span id="seconds"></span>
+        </p>
+        </div>
+    <script>
+        
+        //Months names in English
+        const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", 
+        "October", "November", "December"]
+
+        //Days names in English
+        const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+
+        //Display date function
+        function display()
+        {
+            let date = new Date()
+            alert("Today is "+days[date.getDay()]+", "+months[date.getMonth()]+" "+date.getDate()+", "+date.getFullYear()+
+            ". The current time is "+date.getHours()+":"+date.getMinutes()+":"+date.getSeconds())
+        }
+
+        //Checking input is number, could be done by changing input type from text to number
+        function check(event)
+        {
+            //Testing both inputs at the same time to avoid changing just one to break the test
+            test1 = isNaN(document.getElementById("number1").value)
+            test2 = isNaN(document.getElementById("number2").value)
+
+            if(!test1 && !test2)
+            {
+                document.getElementById("button").disabled = false
+            }
+            else 
+            {
+                document.getElementById("button").disabled = true
+            }
+        }
+
+        //Calculation function
+        function calc()
+        {
+            let num1 = parseInt(document.getElementById("number1").value)
+            let num2 = parseInt(document.getElementById("number2").value)
+            let res = num1+num2
+
+            document.getElementById("result").innerHTML = "Result: "+ res
+        }
+
+        //Date calculation
+        let date = new Date()
+        document.getElementById("dayN").innerHTML = days[date.getDay()]
+        document.getElementById("month").innerHTML = months[date.getMonth()]
+        document.getElementById("day").innerHTML = date.getDate()
+        document.getElementById("year").innerHTML = date.getFullYear()
+        document.getElementById("hour").innerHTML = date.getHours()
+        document.getElementById("minute").innerHTML = date.getMinutes()
+        document.getElementById("seconds").innerHTML = date.getSeconds()
+
+    </script>
+</body>
+</html>
