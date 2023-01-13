@@ -1,9 +1,31 @@
+body {
+	font-family:sans-serif;
+	background-color: #f5eeee;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+div#test2 {
+	padding: 15px;
+	border-radius: 10px;
+	background-color: #fff;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	width: 550px;
+}
+
+#clock {
+	text-align: center;
+	font-size: large;
+}
+
 input {
+	display:block;
 	margin:10px 0;
 	padding:10px 10px;
 	outline:none;
 	border:1px solid #bbb;
-	border-radius:20px;
+	border-radius:10px;
 }
 
 button {
@@ -11,4 +33,17 @@ button {
 	outline:none;
 	border:1px solid #bbb;
 	border-radius:5px;
+}
+
+button:hover {
+	transition: 0.5s;
+	background-color: #bbb;
+	padding:10px 10px;
+	outline:none;
+	border:1px solid rgb(156, 156, 156);
+	border-radius:5px;
+}
+
+h2 {
+	text-align: center;
 }

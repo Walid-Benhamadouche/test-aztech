@@ -6,23 +6,12 @@
     <title>Aztech</title>
 </head>
 <body>
-    <p>Front end Test 1:</p>
-    <button onclick="display()">Display current date</button>
-    <p>Front end Test 2:</p>
+    
     <div id="test2">
-        <form>
-            <label for="input">Number 1</label>
-            <input id="number1" type="text" onchange="check(event)"/>
-
-            <label for="input">Number 2</label>
-            <input id="number2" type="text" onchange="check(event)"/>
-
-            <p id="result">Result: </p>
-
-            <button id="button" type="button" onclick="calc()">Calculate</button>
-        </form>
-        
-        <p>Today is
+        <h2>Front end Test 1:</h2>
+        <button onclick="display()">Display current date</button>
+        <h2>Front end Test 2:</h2>
+        <p id="clock">Today is
             <span id="dayN"></span>,
             <span id="month"></span>
             <span id="day"></span>,
@@ -31,9 +20,21 @@
             <span id="minute"></span>:
             <span id="seconds"></span>
         </p>
-        </div>
-    <script>
+        <form>
+            <label for="input">Number 1</label>
+            <input id="number1" type="text" onchange="check(event)"/>
+    
+            <label for="input">Number 2</label>
+            <input id="number2" type="text" onchange="check(event)"/>
+    
+            <button id="button" type="button" onclick="calc()">Calculate</button>
+            
+            <p id="result">Result: </p>
+        </form>
+            
         
+    </div>
+    <script>
         //Months names in English
         const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", 
         "October", "November", "December"]
@@ -77,14 +78,16 @@
         }
 
         //Date calculation
-        let date = new Date()
-        document.getElementById("dayN").innerHTML = days[date.getDay()]
-        document.getElementById("month").innerHTML = months[date.getMonth()]
-        document.getElementById("day").innerHTML = date.getDate()
-        document.getElementById("year").innerHTML = date.getFullYear()
-        document.getElementById("hour").innerHTML = date.getHours()
-        document.getElementById("minute").innerHTML = date.getMinutes()
-        document.getElementById("seconds").innerHTML = date.getSeconds()
+        setInterval(function(){
+            let date = new Date()
+            document.getElementById("dayN").innerHTML = days[date.getDay()]
+            document.getElementById("month").innerHTML = months[date.getMonth()]
+            document.getElementById("day").innerHTML = date.getDate()
+            document.getElementById("year").innerHTML = date.getFullYear()
+            document.getElementById("hour").innerHTML = date.getHours()
+            document.getElementById("minute").innerHTML = date.getMinutes()
+            document.getElementById("seconds").innerHTML = date.getSeconds()
+        }, 1000)
 
     </script>
 </body>
